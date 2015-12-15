@@ -10,7 +10,7 @@
     {
         public static void Log(object message)
         {
-            File.AppendAllText("GrandTheftApocalypse.log", DateTime.Now + " : " + message + Environment.NewLine);
+            File.AppendAllText("apocalypse.log", DateTime.Now + " : " + message + Environment.NewLine);
         }
     }
 }

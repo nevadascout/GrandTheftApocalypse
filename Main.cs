@@ -2,6 +2,8 @@
 {
     using System;
 
+    using GrandTheftApocalpyse.World;
+
     using GTA;
 
     public class Main : Script
@@ -12,6 +14,7 @@
 
         private void OnTick(object sender, EventArgs e)
         {
+            Ambient.DisableLife();
         }
     }
 }
