@@ -24,7 +24,7 @@ Some wildlife seem to be immune to the effects of the virus and can survive even
 - Use NM commands to raise arms of Zeds like zombie arm *(might not be possible)*
 - Zeds react to sound (gunshots, engines)
 - Zeds react to player in line of sight
-- Special Zeds with extra health, speed, etc (bigfoot, alien)
+- Spawn special Zeds with extra health, speed, etc (bigfoot, alien)
 - Predefined areas where special enemies spawn (alien nests, etc)
 - Spawning of hoards (only ever one on map at a time) - map marker indicates rough hoard position
 
