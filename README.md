@@ -1,4 +1,4 @@
-# GrandTheftApocalypse
+# "Grand Theft Apocalypse" / "Face The Dark"
 
 ## Concept
 The year is 2021. Approximately 5 years ago an alien super weapon was detonated directly above Los Santos. The effect was immediate and crippling - all electronics were instantly disabled causing cars to stop working and planes to fall from the sky. This was but a first stage of the weapon. In the second stage all vehicles on the streets were lifted high into the air and dumped far out at sea. In the third stage a mysterious virus was released into the air causing all those who it infected to lose control of their body forcing them into a zombie-like state. I'm the final stage, the sky was tainted black - blocking out the sun and plunging the state into perpetual darkness.
@@ -22,10 +22,10 @@ Some wildlife seem to be immune to the effects of the virus and can survive even
 - Zeds react to sound (gunshots, engines)
 - Zeds react to seeing player
 - Special Zeds with extra health, speed, etc (Bigfoot, alien)
-- Apply blood decals to Zeds
+- ~~Apply blood decals to Zeds~~
 - Predefined areas (towns, buildings) that Zeds spawn around when the player gets near
 - Predefined areas where special enemies spawn (alien nests, etc)
-- Alternate idea: don't stop peds spawning, instead give them blood decals and make them drunk. Let the engine handle spawning/cleanup
+- ~~Alternate idea: don't stop peds spawning, instead give them blood decals and make them drunk. Let the engine handle spawning/cleanup~~
 
 ### World events engine
 - Create random events at certain map areas at certain times (to keep occurrences infrequent)
@@ -42,7 +42,7 @@ Some wildlife seem to be immune to the effects of the virus and can survive even
 
 ### Base building / safe zones
 - Place objects to block access
-- Place special objects for perks (eg fireplace for food, tank for water)
+- Place special objects for perks (eg fireplace for health regen, [something] for zed shield)
 - Bring supply trucks to the safe zone to upgrade it
 
 ### NPCs
