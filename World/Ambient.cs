@@ -79,6 +79,7 @@
             // To make a ped drunk (zombie-like)
             // Function.Call(Hash.SET_PED_MOVEMENT_CLIPSET, ped.Handle, "move_m@drunk@verydrunk", 1f);
             //switch@trevor@drunk_howling
+            //http://gtaforums.com/topic/817563-v-euphorianaturalmotion-messages/
         }
 
         public static void RunWorldEvents(WorldPeds worldPeds)
