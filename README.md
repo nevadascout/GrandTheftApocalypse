@@ -11,6 +11,8 @@ While some survivors may be immune to the virus, there are some areas of the wor
 
 Some wildlife seem to be immune to the effects of the virus and can survive even the worst infected areas without problem. However, a lack of food had caused many animals to become aggressive and will attack anything they believe they can eat.
 
+![Teaser Screenshot](http://i.imgur.com/ZAzpAOU.jpg)
+
 
 ***
 
