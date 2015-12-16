@@ -1,7 +1,7 @@
 # "Grand Theft Apocalypse" / "Face The Dark"
 
 ## Concept
-The year is 2021. Approximately 5 years ago an alien super weapon was detonated directly above Los Santos. The effect was immediate and crippling - all electronics were instantly disabled causing cars to stop working and planes to fall from the sky. This was but a first stage of the weapon. In the second stage all vehicles on the streets were lifted high into the air and dumped far out at sea. In the third stage a mysterious virus was released into the air causing all those who it infected to lose control of their body forcing them into a zombie-like state. I'm the final stage, the sky was tainted black - blocking out the sun and plunging the state into perpetual darkness.
+The year is 2021. Approximately 5 years ago an alien super weapon was detonated directly above Los Santos. The effect was immediate and crippling - all electronics were instantly disabled causing cars to stop working and planes to fall from the sky. This was but a first stage of the weapon. In the second stage all vehicles on the streets were lifted high into the air and dumped far out at sea. In the third stage a mysterious virus was released into the air causing all those who it infected to lose control of their body forcing them into a zombie-like state. In the final stage, the sky was tainted black - blocking out the sun and plunging the world into a state of perpetual darkness.
 
 Some, it turned out, are naturally immune to the virus. These few people are all that remain of the world that once existed. They fight each other and the Zeds to survive.
 
