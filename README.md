@@ -28,7 +28,7 @@ Some wildlife seem to be immune to the effects of the virus and can survive even
 - Wolf packs spawn on command
 - Enable/disable wolf pack aggression towards player
 - Enable/disable Aussie dog companion
-- Enable/disable zeds attacking player
+- ~~Enable/disable zeds attacking player (no damage done to player yet)~~
 
 Using Enhanced Trainer:
 - Enable/disable duffle bag
