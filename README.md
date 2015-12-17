@@ -29,6 +29,11 @@ Some wildlife seem to be immune to the effects of the virus and can survive even
 - Enable/disable Aussie dog companion
 - Enable/disable zeds attacking player
 - Enable/disable duffle bag
+- Set player to michael, long hair, scruffy beard, wearing yankton outfit + toque
+- Enable/disable rebreather (+ torch)
+- Set player weapons to green carbine rifle w/ torch, pump shotgun w/ torch and combat pistol w/ suppressor
+- Trigger EMP
+- Able to set weather on command (enhanced trainer ?)
 
 ### Gameplay Teaser - Feb 2016
 - Zeds attack player only when detected instead of always
