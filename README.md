@@ -16,6 +16,31 @@ Some wildlife seem to be immune to the effects of the virus and can survive even
 
 ***
 
+## Roadmap
+
+### Cinematic Teaser - Dec 2015 / Jan 2016
+- Zeds have proper animations + textures (no phone usage, no random voices)
+- Ability to enable/disable zed spawning (hash call ontick)
+- Zeds do not flee when hearing gunshots or shot at (set relationship with player)
+- One special zed area (alien nest) added - in subway station (aliens attack player when close by)
+- Military choppers spawn (+ fly low overhead) on command
+- Wolf packs spawn on command
+- Enable/disable wolf pack aggression towards player
+- Enable/disable Aussie dog companion
+- Enable/disable zeds attacking player
+- Enable/disable duffle bag
+
+### Gameplay Teaser - Feb 2016
+- Zeds attack player only when detected instead of always
+- Ability to enable/disable zeds
+- Bandit supply convoys spawn on command
+- Placing limited objects (firepit, etc)
+- Gather loot from abandoned cars, etc
+- Repair vehicles using toolkit
+- Aussie dog can be recruited as a companion
+
+***
+
 # Todo List
 
 ### Zeds
