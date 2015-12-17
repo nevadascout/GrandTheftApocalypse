@@ -5,20 +5,25 @@
 
     using GTA;
     using GTA.Native;
+    using GTA.NaturalMotion;
 
     public class Ambient
     {
-        public static void DisableLife()
+        public static void DisableLife(bool enablePeds)
         {
+            if (!enablePeds)
+            {
+                Function.Call(Hash.SET_PED_DENSITY_MULTIPLIER_THIS_FRAME, 0f);
+            }
+
             // TODO -- NOTE: some random events still occur -> eg. cars arriving at roadside market stands
             Function.Call(Hash.SET_PARKED_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME, 0f);
             Function.Call(Hash.SET_RANDOM_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME, 0f);
-            //Function.Call(Hash.SET_PED_DENSITY_MULTIPLIER_THIS_FRAME, 0f);
             Function.Call(Hash.SET_SCENARIO_PED_DENSITY_MULTIPLIER_THIS_FRAME, 0f);
             Function.Call(Hash.SET_VEHICLE_DENSITY_MULTIPLIER_THIS_FRAME, 0f);
         }
 
-        public static void ConvertPedsToZeds(WorldPeds worldPeds)
+        public static void ConvertPedsToZeds(WorldPeds worldPeds, bool zedsAttackPlayer)
         {
             var pedsInWorld = World.GetAllPeds();
 
@@ -34,6 +39,11 @@
 
             existingPeds.Add(Game.Player.Character.Handle);
 
+            if (worldPeds.Companion != null)
+            {
+                existingPeds.Add(worldPeds.Companion.Handle);
+            }
+
             var processedPeds = new List<Ped>();
             
             foreach (var ped in pedsInWorld)
@@ -45,12 +55,31 @@
                 Function.Call(Hash.APPLY_PED_DAMAGE_PACK, ped.Handle, "HOSPITAL_9", 0, 1);
                 Function.Call(Hash.APPLY_PED_DAMAGE_PACK, ped.Handle, "Explosion_Med", 0, 1);
 
+                if (Function.Call<bool>(Hash.IS_AMBIENT_SPEECH_PLAYING, ped.Handle))
+                {
+                    Function.Call(Hash.STOP_CURRENT_PLAYING_AMBIENT_SPEECH, ped.Handle);
+                }
+
+                //Function.Call(Hash.STOP_PED_SPEAKING, ped.Handle, 0);
+
+                Function.Call(Hash.SET_PED_FLEE_ATTRIBUTES, ped.Handle, 0, 0);
+                
                 if (!Function.Call<bool>(Hash.HAS_ANIM_SET_LOADED, "move_m@drunk@verydrunk"))
                 {
                     Function.Call(Hash.REQUEST_ANIM_SET, "move_m@drunk@verydrunk");
                 }
 
                 Function.Call(Hash.SET_PED_MOVEMENT_CLIPSET, ped.Handle, "move_m@drunk@verydrunk", 1f);
+
+                if (zedsAttackPlayer)
+                {
+                    ped.Task.GoTo(Game.Player.Character);
+                }
+
+                //if (ped.IsTouching(Game.Player.Character))
+                //{
+                //    Function.Call(Hash.APPLY_DAMAGE_TO_PED, Game.Player.Character.Handle, 10, 0);
+                //}
 
                 processedPeds.Add(ped);
             }

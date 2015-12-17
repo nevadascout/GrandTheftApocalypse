@@ -30,5 +30,7 @@
         public List<Ped> Bandits { get; set; }
 
         public List<Ped> Wildlife { get; set; }
+
+        public Ped Companion { get; set; }
     }
 }
