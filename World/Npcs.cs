@@ -15,14 +15,25 @@
             //    companion?.Task.GoTo(Game.Player.Character, new Vector3(1, 1, 0));
             //}
 
+            if (companion != null)
+            {
+                var playerPos = Game.Player.Character.Position;
+                var desiredPositon = Game.Player.Character.GetOffsetInWorldCoords(new Vector3(0.5f, 1f, 0));
+
+                // speed -> 1 walk, 2 jog, 3 sprint (note that drunk only allows jogging)
+                var speed = 2f;
+
+                Function.Call(Hash.TASK_GO_STRAIGHT_TO_COORD, companion.Handle, desiredPositon.X, desiredPositon.Y, desiredPositon.Z, speed, -1, 0f, 0f); 
+            }
+
             // note - won't work as it's not a sequence
             // only thing that does work is this:
             // Function.Call(Hash.TASK_GO_STRAIGHT_TO_COORD, dog.Handle, playerPos.X, playerPos.Y, playerPos.Z, 2f, -1, 0f, 0f); // speed -> 1 walk, 2 jog, 3 sprint (note that drunk only allows jogging)
-            if (companion?.TaskSequenceProgress == 100)
-            {
-                companion.Task.RunTo(Game.Player.Character.GetOffsetInWorldCoords(new Vector3(1, 1, 0)), false);
+            //if (companion?.TaskSequenceProgress == 100)
+            //{
+                //companion.Task.RunTo(Game.Player.Character.GetOffsetInWorldCoords(new Vector3(1, 1, 0)), false);
                 //companion.Task.GoTo(Game.Player.Character, new Vector3(1, 1, 0));
-            }
+            //}
 
             // companion?.Task.RunTo(Game.Player.Character.GetOffsetInWorldCoords(new Vector3(1, 1, 0)), false);
         }

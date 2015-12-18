@@ -1,6 +1,7 @@
 ﻿namespace GrandTheftApocalpyse
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Windows.Forms;
 
@@ -30,6 +31,8 @@
             // Disable wanted levels
             Function.Call(Hash.SET_MAX_WANTED_LEVEL, 0);
             Function.Call(Hash.CLEAR_PLAYER_WANTED_LEVEL, Game.Player);
+
+            //Ambient.CreateNest(this.worldPeds.UpperNest, this.worldPeds.LowerNest);
         }
 
         private void OnTick(object sender, EventArgs e)
@@ -39,6 +42,8 @@
             Ambient.RunWorldEvents(this.worldPeds);
 
             Npcs.RunCompanion(this.worldPeds.Companion, this.tickCount);
+
+            //Ambient.RunNest(this.worldPeds.UpperNest, this.worldPeds.LowerNest);
 
 
             this.tickCount++;
@@ -53,9 +58,40 @@
         {
             if (e.KeyCode == Keys.F9)
             {
-                // Debug
-                UI.Notify($"ZedCount: {this.worldPeds.Zeds.Count}");
-                UI.Notify($"Peds in world: {GTA.World.GetAllPeds().Length}");
+                // Spawn military world event
+
+                var chopper = GTA.World.CreateVehicle(VehicleHash.Valkyrie, new Vector3(1331.345f, 3368.439f, 60f));
+                chopper.CreateRandomPedOnSeat(VehicleSeat.Driver);
+                chopper.CreateRandomPedOnSeat(VehicleSeat.Passenger);
+                chopper.Speed = 100;
+                chopper.IsPersistent = false;
+
+                var blip = chopper.AddBlip();
+                blip.Color = BlipColor.Red;
+                blip.Scale = 0.5f;
+
+                var driver = chopper.GetPedOnSeat(VehicleSeat.Driver);
+                Function.Call(Hash.TASK_VEHICLE_DRIVE_TO_COORD, driver.Handle, chopper.Handle, 1198.114f, 4066.201f, 10f, 200f, 1, (uint)VehicleHash.Valkyrie, 16777216, 0, -1);
+                //Function.Call(Hash.TASK_GO_STRAIGHT_TO_COORD, driver.Handle, 1198.114f, 4066.201f, 30f, 5f, -1, 0f, 0f);
+                //driver.Task.DriveTo(chopper, new Vector3(1234.517f, 3661.473f, 30f), 0f, 5f);
+
+
+                var chopper2 = GTA.World.CreateVehicle(VehicleHash.Valkyrie, new Vector3(1331.345f, 3338.439f, 60f));
+                chopper2.CreateRandomPedOnSeat(VehicleSeat.Driver);
+                chopper2.CreateRandomPedOnSeat(VehicleSeat.Passenger);
+                chopper2.Speed = 100;
+                chopper2.IsPersistent = false;
+
+                var blip2 = chopper2.AddBlip();
+                blip2.Color = BlipColor.Red;
+                blip2.Scale = 0.5f;
+
+                var driver2 = chopper2.GetPedOnSeat(VehicleSeat.Driver);
+                Function.Call(Hash.TASK_VEHICLE_DRIVE_TO_COORD, driver2.Handle, chopper2.Handle, 1198.114f, 4066.201f, 10f, 200f, 1, (uint)VehicleHash.Valkyrie, 16777216, 0, -1);
+
+                //16777216
+
+                UI.Notify("Triggering military event");
             }
 
             if (e.KeyCode == Keys.F10)
@@ -72,31 +108,52 @@
 
             if (e.KeyCode == Keys.F8)
             {
+                this.worldPeds.Companion?.Delete();
+
                 // Spawn aussie dog as companion
                 var companionGroupId = GTA.World.AddRelationshipGroup("companion");
                 Game.Player.Character.RelationshipGroup = companionGroupId;
 
                 var companion = Npcs.SpawnCompanion(PedHash.Shepherd, Game.Player.Character.GetOffsetInWorldCoords(new Vector3(0, 5, 0)), companionGroupId);
 
-                //companion.Task.RunTo(Game.Player.Character, new Vector3(1, 1, 0));
-
-                companion.Task.RunTo(Game.Player.Character.GetOffsetInWorldCoords(new Vector3(1, 1, 0)), false);
-
-                //Function.Call(Hash.TASK_FOLLOW_TO_OFFSET_OF_ENTITY, companion.Handle, Game.Player.Character, 1, 1, 0, 100, -1, 1, 1);
-
-                //companion.Task.GoTo(Game.Player.Character, new Vector3(1, 1, 0));
-
                 this.worldPeds.Companion = companion;
                 Logger.Log("Creating companion");
             }
 
-
-            if (e.KeyCode == Keys.F8)
+            if (e.KeyCode == Keys.F7)
             {
-                // Make dog attack nearest zed
-                var worldpeds = GTA.World.GetAllPeds().Where(p => p != Game.Player.Character);
-                // Example:
-                //Function.Call(Hash.TASK_COMBAT_PED, dogPed.Handle, zedPed.Handle, 0, 16);
+                // Delete companion
+                this.worldPeds.Companion.Delete();
+                this.worldPeds.Companion = null;
+            }
+
+            if (e.KeyCode == Keys.Add)
+            {
+                // Get location
+                UI.Notify("Location saved to log");
+
+                var p = Game.Player.Character.Position;
+
+                Logger.Log($"Player coords: {p.X}, {p.Y}, {p.Z}");
+            }
+
+            if (e.KeyCode == Keys.Subtract)
+            {
+                // Clean up alien nest
+                UI.Notify("Cleaning up nest");
+
+                foreach (var ped in this.worldPeds.UpperNest)
+                {
+                    ped.Delete();
+                }
+
+                foreach (var ped in this.worldPeds.LowerNest)
+                {
+                    ped.Delete();
+                }
+
+                this.worldPeds.UpperNest = new List<Ped>();
+                this.worldPeds.LowerNest = new List<Ped>();
             }
         }
     }

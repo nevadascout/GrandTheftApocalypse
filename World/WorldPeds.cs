@@ -14,6 +14,8 @@
             this.Bandits = new List<Ped>();
             this.Wildlife = new List<Ped>();
             this.Hoard = new List<Ped>();
+            this.UpperNest = new List<Ped>();
+            this.LowerNest = new List<Ped>();
 
             // Values set by ambient ped processor when converting regular peds into zombies
             this.Zeds = new List<Ped>();
@@ -30,6 +32,10 @@
         public List<Ped> Bandits { get; set; }
 
         public List<Ped> Wildlife { get; set; }
+
+        public List<Ped> UpperNest { get; set; }
+
+        public List<Ped> LowerNest { get; set; }
 
         public Ped Companion { get; set; }
     }
