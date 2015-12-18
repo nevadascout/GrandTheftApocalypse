@@ -11,8 +11,10 @@ While some survivors may be immune to the virus, there are some areas of the wor
 
 Some wildlife seem to be immune to the effects of the virus and can survive even the worst infected areas without problem. However, a lack of food had caused many animals to become aggressive and will attack anything they believe they can eat.
 
-![Teaser Screenshot](http://i.imgur.com/ZAzpAOU.jpg)
-![Second Teaser Screenshot](http://i.imgur.com/s9G6mfl.jpg)
+![Michael in an Alien nest](http://i.imgur.com/4ALUaZg.jpg)
+![Taking down a pesky zed](http://i.imgur.com/s9G6mfl.jpg)
+![Michael wandering with his companion](http://i.imgur.com/jtMLvvA.jpg)
+![Michael wandering with his companion (2)](http://i.imgur.com/q5bUnnN.jpg)
 
 
 ***
@@ -23,11 +25,12 @@ Some wildlife seem to be immune to the effects of the virus and can survive even
 - ~~Zeds have proper animations + textures (no phone usage, no random voices)~~
 - ~~Ability to enable/disable zed spawning (hash call ontick)~~
 - ~~Zeds do not flee when hearing gunshots or shot at (set relationship with player)~~
-- One special zed area (alien nest) added - in subway station (aliens attack player when close by)
-- Military choppers spawn (+ fly low overhead) on command
+- ~~One special zed area (alien nest) added - in subway station (aliens attack player when close by)~~
+- ~~Military choppers spawn (+ fly low overhead) on command~~
 - Wolf packs spawn on command
 - Enable/disable wolf pack aggression towards player
-- Enable/disable Aussie dog companion
+- Zed hoards that chase the player
+- ~~Enable/disable Aussie dog companion~~
 - ~~Enable/disable zeds attacking player~~ *(no damage done to player yet)*
 
 Using Enhanced Trainer:
