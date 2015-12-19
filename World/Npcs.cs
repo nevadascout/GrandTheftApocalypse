@@ -1,6 +1,6 @@
 ﻿namespace GrandTheftApocalpyse.World
 {
-    using GrandTheftApocalpyse.Internal;
+    using System.Collections.Generic;
 
     using GTA;
     using GTA.Math;

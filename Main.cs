@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Windows.Forms;
 
     using GrandTheftApocalpyse.Internal;
@@ -43,6 +42,7 @@
 
             Npcs.RunCompanion(this.worldPeds.Companion, this.tickCount);
 
+            Ambient.RunHoard(this.worldPeds.Hoard);
             //Ambient.RunNest(this.worldPeds.UpperNest, this.worldPeds.LowerNest);
 
 
@@ -154,6 +154,49 @@
 
                 this.worldPeds.UpperNest = new List<Ped>();
                 this.worldPeds.LowerNest = new List<Ped>();
+            }
+
+            if (e.KeyCode == Keys.Multiply)
+            {
+                //UI.Notify("Creating hoard");
+                //Ambient.CreateHoard(this.worldPeds.Hoard);
+
+                UI.Notify("Creating military");
+
+                // Marine model - PedHash.Marine03SMY
+                // Marine component variation: hat (3) is value 1
+
+                // FIB Model - PedHash.FibSec01
+
+                // Vehicle positions
+                // Tank (center):   647.5102f, -1020.344f, 36.56903f
+                // Tank (right):    644.8627f, -1011.547f, 36.52551f
+                // FIB car (left):  640.3108f, -1029.581f, 36.30553f
+
+                // TODO - Get coords for each vehicle to drive to
+                // TODO - Get coords to spawn each ped
+                // TODO - Get coords for each ped to run to
+            }
+
+            if (e.KeyCode == Keys.Divide)
+            {
+                //UI.Notify("Cleaning up hoard");
+
+                //foreach (var ped in this.worldPeds.Hoard)
+                //{
+                //    ped.Delete();
+                //}
+
+                //this.worldPeds.Hoard = new List<Ped>();
+
+                UI.Notify("Cleaning up military");
+
+                foreach (var ped in this.worldPeds.Military)
+                {
+                    ped.Delete();
+                }
+
+                this.worldPeds.Military = new List<Ped>();
             }
         }
     }

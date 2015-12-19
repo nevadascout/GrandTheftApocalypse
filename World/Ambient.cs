@@ -30,7 +30,7 @@
 
             // Don't apply zombie effects to any NPCs spawned by scripts, or previously processed peds (or the player)
             var existingPeds =
-                worldPeds.Bandits.Concat(worldPeds.Hoard)
+                worldPeds.Bandits//.Concat(worldPeds.Hoard)
                     .Concat(worldPeds.Military)
                     .Concat(worldPeds.Survivors)
                     .Concat(worldPeds.Wildlife)
@@ -211,6 +211,28 @@
             }
         }
 
+
+
+        public static void CreateHoard(List<Ped> pedsInHoard)
+        {
+            var hoardPosition = Game.Player.Character.GetOffsetInWorldCoords(new Vector3(-10f, 0, 0));
+
+            for (int i = 0; i < 15; i++)
+            {
+                pedsInHoard.Add(GTA.World.CreateRandomPed(hoardPosition.Around(5)));
+            }
+        }
+
+        public static void RunHoard(List<Ped> pedsInHoard)
+        {
+            var playerPos = Game.Player.Character.Position;
+            var speed = 2f;
+
+            foreach (var ped in pedsInHoard)
+            {
+                Function.Call(Hash.TASK_GO_STRAIGHT_TO_COORD, ped.Handle, playerPos.X, playerPos.Y, playerPos.Z, speed, -1, 0f, 0f);
+            }
+        }
 
 
 
